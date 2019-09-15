@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Game Company Stock Sentiment Analysis - Results</title>
+		<!-- SPICY CSS FORMATTING -->
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+		<!-- INCLUDES FOR JQUERY SUGGESTION MAGIC -->
+		<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+		<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.js"></script>
+		<link href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" rel="Stylesheet"></link>
+		<script src='https://cdn.rawgit.com/pguso/jquery-plugin-circliful/master/js/jquery.circliful.min.js'></script>
+		<!-- INCLUDE FOR BOOTSTRAP FORMATTING -->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<!-- LIGHTBOX INCLUDES -->
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/lity.css') }}">
+		<script src="{{url_for('static', filename='js/lity.js')}}"></script>
+		 <!-- INCLUDE BOOTSTRAP WIZARDRY -->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body>
+  <div class="container-fluid">
+		<div class="row">
+			<div class="col-md-12">
+				<!-- CHANGE THE JUMBOTRON BG TO THE SELECTED GAME COMPANY BACKGROUND -->
+				<div class="jumbotron moviemask" style="text-align: center; margin-top:-30px !important; background: linear-gradient(to bottom, rgba(23, 23, 24, 0.87), rgba(2, 2, 2, 0.73)),url({{ url_for('static',filename=pageImageURL) }}) no-repeat; background-size: cover;">
+					<div class="row">
+							<div class='col-md-4'></div>
+							<div class='col-md-4'>
+                            <img style="width:400px;" src="{{ url_for('static',filename='img/logo.png') }}"/>	
+							</div>
+							<div class='col-md-4'>
+								<!-- SUPER COOL FLASK/JQUERY AUTOCOMPLETE FORM -->
+								<form method="POST" novalidate>
+									<div class="autocomplete" style="width:300px;">
+										{{ form.autocomp (placeholder="Enter Stock Ticker")}} 
+									</div>
+										{{ form.submit() }}
+								</form>
+								<!-- JQUERY/AJAX SCRIPT FOR SAID AUTOCOMPLETE FORM. CONNECTS TO THE AUTOCOMPLETE ROUTE IN FLASK -->
+								<script>
+									$(function() {
+										$.ajax({
+											url: '{{ url_for("autocomplete") }}'
+												}).done(function (data){
+													$('#stock_autocomplete').autocomplete({
+														source: data,
+														minLength: 2
+													});
+												});
+										});
+									</script>
+							</div>
+						</div>
+					<div style="margin: 70px 0 0 0;" class="row">					
+						<div class='col-md-4'><div style="float: right; margin: 40px 0 0 0;"><img class='hoverborder border' style='width: 375px; height: 293px; margin: 0px; float: left;' src="{{ url_for('static',filename=pageImageURL) }}"></div></div>
+						<div class="col-md-6">
+							<div class='overview' style="text-align: left;">
+							<h4>{{ company }}</h4>
+							<h6 style="color: #fff;">Stock Ticker: <span style="color: #c0c0c0 !important;">{{ ticker }}</span></h6>
+							<h6 style="color: #fff;">Current Stock Price: <span style="color: #c0c0c0 !important;">{{ current_price }}</span></h6>
+							<h6 style="color: #fff;">Previous Close: <span style="color: #c0c0c0 !important;">{{ prev_close }}</span></h6>
+							<h6 style="color: #fff;">Stock Open: <span style="color: #c0c0c0 !important;">{{ stock_open }}</span></h6>
+							<h6 style="color: #fff;">Stock Volume: <span style="color: #c0c0c0 !important;">{{ stock_vol }}</span></h6>
+							<h6 style="color: #fff;">3-month Average: <span style="color: #c0c0c0 !important;">{{ avg_three_mo }}</span></h6>
+                            <h6 style="color: #fff;">52-week Average: <span style="color: #c0c0c0 !important;">{{ avg_fify_two }}</span></h6>
+                            <h6 style="color: #fff;">The Most Recent Article From Forbes.com:</h6>
+                            <h6 style="color: #fff;">Headline: <span style="color: #c0c0c0 !important;">{{ myHeadline }}</span></h6>
+                            <h6 style="color: #fff;">Headline Sentiment: <span style="color: #c0c0c0 !important;">Sentiment Score: {{ mySentHead['overall_sentiment_score'] }} | Overall Sentiment: {{ mySentHead['input_sentiment_score'] }}</span></h6>
+                            <h6 style="color: #fff;">Article Synopsis: <span style="color: #c0c0c0 !important;">{{ myArticle }}</span></h6>
+                            <h6 style="color: #fff;">Article Sentiment: <span style="color: #c0c0c0 !important;">Sentiment Score: {{ mySentBody['overall_sentiment_score'] }} | Overall Sentiment: {{ mySentBody['input_sentiment_score'] }}</span></h6>
+						</div>
+							</div>
+					</div>
+				</div>
+				<div class="jumbotron" style="text-align: center; background: #010101; padding-top: 10px !important;">					
+					<a href="../"><button class="button-styled" >Go Back</button></a>
+				</div>
+			</div>		
+		</div>
+	</div>
+	<!-- MORE INCLUDES... FOR THINGS... AND STUFF... -->
+	<script src="{{ url_for('static',filename='js/bootstrap.min.js') }}"></script>
+	<script src="{{ url_for('static',filename='js/scripts.js') }}"></script>
+  </body>
+</html>
