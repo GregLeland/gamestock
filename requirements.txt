@@ -40,6 +40,7 @@ tensorflow==1.13.1
 tensorflow-estimator==1.13.0
 unicodecsv==0.14.1
 urllib3==1.23
+vaderSentiment==2.5
 wcwidth==0.1.7
 webencodings==0.5.1
 WTForms==2.2.1
