@@ -1,26 +1,6 @@
+import requests
 from bs4 import BeautifulSoup as bs
 from nltk.sentiment.vader import SentimentIntensityAnalyzer as SIA
-import requests
-
-# LIST OF STOCK TICKERS FOR EACH GAME COMPANY
-stockList = ['NTDOY',
-             'EA',
-             'UBSFY',
-             'ATVI',
-             'SGAMY',
-             'TTWO',
-             'SQNXF',
-             'NCBDF']
-
-# LIST OF GAME COMAPNIES
-gcList = ['Nintendo',
-          'Electronic Arts', 
-          'Ubisoft',
-          'Activision Blizzard',
-          'Sega Sammy Holdings',
-          'Take-two Interactive',
-          'Square Enix',
-          'Bandai Namco']
 
 # STOCK INFO FUNCTION
 def stockInfo(stock):
