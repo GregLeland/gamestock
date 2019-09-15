@@ -21,7 +21,7 @@ def index():
     form = SearchForm(request.form)
     if request.method == 'POST':
         form_cont = form.autocomp.data.replace(" ", "%20")
-        return redirect('http://stocksentiment.herokuapp.com/result/' + form_cont)
+        return redirect('http://stocksentiment.herokuapp.com/stock/' + form_cont)
     gameco = []
     for x in stockList:
         gameco.append(x)
@@ -33,7 +33,7 @@ def stockinfo(title):
     form = SearchForm(request.form)
     if request.method == 'POST':
         form_cont = form.autocomp.data.replace(" ", "%20")
-        return redirect('http://stocksentiment.herokuapp.com/result/' + form_cont)
+        return redirect('http://stocksentiment.herokuapp.com/stock/' + form_cont)
     myStock = stockInfo(title)
     company = myStock['company']
     ticker = myStock['stock_ticker']
