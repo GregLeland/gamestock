@@ -1,1 +1,1 @@
-FLASK_APP=RecFlix/app.py flask run
+FLASK_APP=StockAnalyzer/app.py flask run
