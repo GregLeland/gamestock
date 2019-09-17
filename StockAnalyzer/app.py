@@ -5,13 +5,10 @@ from wtforms import TextField, BooleanField, PasswordField, TextAreaField, Submi
 from engine import *
 import requests
 from bs4 import BeautifulSoup as bs
-from nltk.sentiment.vader import SentimentIntensityAnalyzer as SIA
+# from nltk.sentiment.vader import SentimentIntensityAnalyzer as SIA
 
 app = Flask(__name__)
 app.static_folder = 'static'
-
-app.logger.addHandler(logging.StreamHandler(sys.stdout))
-app.logger.setLevel(logging.ERROR)
 
 # LIST OF STOCK TICKERS FOR EACH GAME COMPANY
 stockList = ['NTDOY',
@@ -91,6 +88,7 @@ def stockinfo(title):
                             avg_three_mo=avg_three_mo,
                             avg_fify_two=avg_fify_two,
                             pageImageURL=pageImageURL,
+                            title=title,
                             form=form)
 
 # SETS UP THE FORM WITH THE AUTOCOMP TEXT FIELD AND SUBMISSION BUTTON
