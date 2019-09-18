@@ -26,8 +26,8 @@ def stockInfo(stock):
             
     # URL CONFIG FOR YAHOO FINANCE
     link = f'https://finance.yahoo.com/quote/{stock}?p={stock}&.tsrc=fin-srch'
-    headers={'User-Agent':'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36'}
-    source=requests.get(link,headers=headers).text
+    #headers={'User-Agent':'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36'}
+    source=requests.get(link).text
     soup=bs(source,"html.parser")
     
     # SCRAPE THE STOCK INFORMATION
@@ -58,8 +58,8 @@ def artInfo(company):
     
     # URL CONFIG FOR FORBES
     link = f'https://www.forbes.com/search/?q={company}'
-    headers={'User-Agent':'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36'}
-    source=requests.get(link,headers=headers).text
+    #headers={'User-Agent':'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36'}
+    source=requests.get(link).text
     soup=bs(source,"html.parser")
 
     # SCRAPE THE FIRST HEADLINE AND LINK TO THE ARTICLE
