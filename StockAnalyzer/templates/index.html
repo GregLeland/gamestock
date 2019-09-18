@@ -45,7 +45,7 @@
 				border-radius: 15px;
 			  border-width: 2px;
 				border-style: solid;
-				border-color: #ff0101;
+				border-color: #01fdb6;
 				color: #fff;
 				width: 100%;
 				display: block;
@@ -55,11 +55,11 @@
 			}
 
 			input[type=submit] {
-				background-color: #ff0101;
+				background-color: #0100b3;
 				border-radius: 15px;
 			  border-width: 2px;
 				border-style: solid;
-				border-color: #ff0101;
+				border-color:#0100b3;
 				color: #fff;
 				width: auto;
 				height: auto;
@@ -75,7 +75,7 @@
 			}
 
 			.button-styled{
-							background-color: #ff0101;
+							background-color:#0100b3;
 							border-radius: 15px;
 			  			border-width: 2px;
 							border-style: solid;
@@ -132,7 +132,7 @@
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-md-12">
-					<div class="jumbotron" style="text-align: center; background-color: black;">
+					<div class="jumbotron" style="text-align: center; background: url({{ url_for('static',filename='img/bg1.jpg') }}) no-repeat; background-size: cover;">
 						<div class="row">
 							<div class='col-md-4'></div>
 							<div class='col-md-4'>
@@ -161,8 +161,6 @@
 									</script>
 							</div>
 						</div>
-						<h4 style="margin-top:20px;">
-This is a project that was created to discover if there is a significant correlation, if any, between stock prices and the sentiment of a recent news article about the company.</h4>
 						<p>
 							Select a game company below
 						</p>
@@ -177,7 +175,10 @@ This is a project that was created to discover if there is a significant correla
 							<div class='col-md-2 col-center' style="margin-right: 20px;"'><div class="item"><a href='stock/{{gameco[5]}}'><img class='border' style='width: 275px; height: 215px; margin: 0px; float: left;' src="{{ url_for('static', filename='img/TTWO.jpg') }}"></a></div></div>
 							<div class='col-md-2 col-center' style="margin-right: 20px;"'><div class="item"><a href='stock/{{gameco[6]}}'><img class='border' style='width: 275px; height: 215px; margin: 0px; float: left;' src="{{ url_for('static', filename='img/SQNXF.jpg') }}"></a></div></div>                    
 							<div class='col-md-2 col-center'><div class="item"><a href='stock/{{gameco[7]}}'><img class='border' style='width: 275px; height: 215px; margin: 0px; float: left;' src="{{ url_for('static', filename='img/NCBDF.jpg') }}"></a></div></div>                    
-						</div>		
+						</div>
+						<h4 style="margin-top:20px;">
+								This is a project that was created to discover if there is a significant correlation, if any, between stock prices and the sentiment of a recent news article about the company.</h4>
+																
 					</div>
 				</div>
 			</div>
