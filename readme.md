@@ -144,7 +144,7 @@ def SentAnal(sentFeed):
     return sentDict
 ```
 
-## Passing the Nintendo stock into the stock function and gathering the data
+## Passing the <span style="color:red">Nintendo</span> stock into the stock function and gathering the data
 
 
 ```python
