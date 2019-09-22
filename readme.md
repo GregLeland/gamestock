@@ -89,7 +89,7 @@ def stockInfo(stock):
     return stockDict
 ```
 
-## Wrote a function to scrape an artice and its headline
+## Wrote a function to scrape an article and its headline
 
 
 ```python
